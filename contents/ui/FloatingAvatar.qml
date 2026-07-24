@@ -19,9 +19,6 @@
 import QtQuick
 import QtQuick.Window 2.2
 import org.kde.plasma.core as PlasmaCore
-import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.components 1.0 as KirigamiComponents
-import org.kde.kcmutils as KCM
 
 PlasmaCore.Dialog { //cosmic background noise is less random than the placement of this dialog
   id: avatarContainer

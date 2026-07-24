@@ -22,8 +22,6 @@ import QtQuick.Effects
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.coreaddons 1.0 as KCoreAddons
-
-import org.kde.plasma.plasma5support 2.0 as P5Support
 import org.kde.kirigami as Kirigami
 import QtQuick.Controls
 

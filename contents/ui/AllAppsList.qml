@@ -24,8 +24,6 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 
 import org.kde.kirigami as Kirigami
 
-import org.kde.draganddrop 2.0
-
 
 RowLayout {
   id: allApps
