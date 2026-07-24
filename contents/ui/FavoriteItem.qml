@@ -148,9 +148,9 @@ Item {
 
   MultiEffect {
     id: appNameGlow
-    enabled: plasmoid.configuration.enableGlow && plasmoid.configuration.showAppLabels
+    enabled: false
     anchors.fill: appname
-    shadowEnabled: plasmoid.configuration.enableGlow && plasmoid.configuration.showAppLabels
+    shadowEnabled: false
     shadowColor: main.glowColor1
     shadowVerticalOffset: 0
     shadowHorizontalOffset: 0

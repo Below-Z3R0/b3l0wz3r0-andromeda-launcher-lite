@@ -16,37 +16,46 @@
  *   Free Software Foundation, Inc.,                                         *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .          *
  ****************************************************************************/
+
 import QtQuick
-import QtQuick.Window 2.2
+import QtQuick.Window
 import org.kde.plasma.core as PlasmaCore
 
-PlasmaCore.Dialog { //cosmic background noise is less random than the placement of this dialog
-  id: avatarContainer
+PlasmaCore.Dialog {
+    id: avatarContainer
 
-  property int avatarWidth
-  property bool isTop: false
+    // Set window flags so it floats above the panel and all other windows.
+    // Without this, the avatar appears behind the panel/lock screen.
+    flags: Qt.Window | Qt.WindowStaysOnTopHint | Qt.BypassWindowManagerHint
+    //      ^^^^  ^^^^ STAYS ON TOP         ^^^^ disables taskbar entry / panel preserve
+    //
+    // BypassWindowManagerHint is deprecated in Qt 6.6+ but PlasmaCore.Dialog
+    // still understands it as "do not put me in the taskbar / pager".
+    // On Wayland, STAYS_ON_TOP is the only flag that actually influences stacking.
 
-  type: PlasmaCore.Dialog.Type.Notification
+    property int avatarWidth
+    property bool isTop: false
 
-  x: root.x + root.width / 2 - width / 2
-  y: root.y - width / 2 //you can't even add 1 without everything breaking wtf
+    type: PlasmaCore.Dialog.Type.Notification
 
-  mainItem:
-  Item {
-   onParentChanged: {
-     //This removes the dialog background
-      if (parent){
-        var popupWindow = Window.window
-        if (typeof popupWindow.backgroundHints !== "undefined"){
-          popupWindow.backgroundHints = PlasmaCore.Types.NoBackground
+    x: root.x + root.width / 2 - width / 2
+    y: root.y - width / 2
+
+    mainItem:
+    Item {
+        onParentChanged: {
+            if (parent) {
+                var popupWindow = Window.window
+                if (typeof popupWindow.backgroundHints !== "undefined") {
+                    popupWindow.backgroundHints = PlasmaCore.Types.NoBackground
+                }
+            }
         }
-      }
     }
-  }
-  UserAvatar {
-    id: avatarFrame
-    anchors.centerIn: parent
-    width: avatarWidth
-    height: avatarWidth
-  }
+    UserAvatar {
+        id: avatarFrame
+        anchors.centerIn: parent
+        width: avatarWidth
+        height: avatarWidth
+    }
 }
