@@ -65,7 +65,6 @@ RowLayout {
       _categoriesLoaded = true;
   }
 
-  onRootModelChanged: _buildCategoriesList()
 
   Component.onCompleted: _buildCategoriesList()
 
