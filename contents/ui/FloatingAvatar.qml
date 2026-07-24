@@ -29,7 +29,7 @@ PlasmaCore.Dialog { //cosmic background noise is less random than the placement 
   property int avatarWidth
   property bool isTop: false
 
-  type: "Notification"
+  type: PlasmaCore.Dialog.Type.Notification
 
   x: root.x + root.width / 2 - width / 2
   y: root.y - width / 2 //you can't even add 1 without everything breaking wtf

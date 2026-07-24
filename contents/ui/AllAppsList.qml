@@ -18,11 +18,8 @@
  ****************************************************************************/
 
 import QtQuick
-import QtQuick.Controls 2.15
-
 import QtQuick.Layouts
 
-import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
 import org.kde.kirigami as Kirigami
@@ -45,25 +42,34 @@ RowLayout {
 
   property alias viewItem: appViewLoader.item
 
-  readonly property var appsCategoriesList: { 
+  // Cache: built once on Component.onCompleted and on rootModel changes
+  // (upstream re-evaluated on every access). b3l0wz3r0 fork optimization.
+  property var appsCategoriesList: []
+  property bool _categoriesLoaded: false
 
-    var categories = [];
-    var categoryName;
-    var categoryIcon;
+  function _buildCategoriesList() {
+      var categories = [];
+      var categoryName;
+      var categoryIcon;
 
-    for (var i = 2; i < rootModel.count; i++) {
-      categoryName  = rootModel.data(rootModel.index(i, 0), Qt.DisplayRole);
-      categoryIcon  = rootModel.data(rootModel.index(i, 0), Qt.DecorationRole);
-      if (!categoryName || categoryName === "") continue;
-      if (categoryName === "All Applications") categoryName = i18n("All Apps");
-      categories.push({
-        name: categoryName,
-        index: i,
-        icon: categoryIcon
-      });
-    }
-    return categories;
+      for (var i = 2; i < rootModel.count; i++) {
+        categoryName  = rootModel.data(rootModel.index(i, 0), Qt.DisplayRole);
+        categoryIcon  = rootModel.data(rootModel.index(i, 0), Qt.DecorationRole);
+        if (!categoryName || categoryName === "") continue;
+        if (categoryName === "All Applications") categoryName = i18n("All Apps");
+        categories.push({
+          name: categoryName,
+          index: i,
+          icon: categoryIcon
+        });
+      }
+      appsCategoriesList = categories;
+      _categoriesLoaded = true;
   }
+
+  onRootModelChanged: _buildCategoriesList()
+
+  Component.onCompleted: _buildCategoriesList()
 
   function updateModels() {
       allApps.allAppsModel = rootModel.modelForRow(2)
@@ -115,6 +121,7 @@ RowLayout {
     Layout.fillHeight: true
     clip: true
     model: appsCategoriesList
+    reuseItems: true
 
     delegate: Item {
       width: ListView.view.width

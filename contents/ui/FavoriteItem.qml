@@ -182,7 +182,7 @@ Item {
         
       }
       onReleased: {
-        isDraging: false
+        isDraging = false
       }
       onEntered: {
           // - When the movedWithKeyboard condition is broken, we do not want to

@@ -194,10 +194,6 @@ PlasmoidItem {
         visible: false
     }
 
-    function resetDragSource() {
-        dragSource = null;
-    }
-
      Plasmoid.contextualActions: [
         PlasmaCore.Action {
             text: i18n("Edit Applications…")

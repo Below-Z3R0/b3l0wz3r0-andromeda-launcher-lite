@@ -150,7 +150,7 @@ Item {
         
       }
       onReleased: {
-        isDraging: false
+        isDraging = false
       }
       onExited: {
         rect.state = "default"

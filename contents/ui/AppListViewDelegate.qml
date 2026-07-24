@@ -24,7 +24,6 @@ import org.kde.plasma.core as PlasmaCore
 import org.kde.kirigami 2.13 as Kirigami
 import QtQuick.Controls 2.15
 import QtQuick.Templates as T
-import org.kde.plasma.plasmoid
 
 import "../code/tools.js" as Tools
 
@@ -161,7 +160,7 @@ T.ItemDelegate {
         
       }
       onReleased: {
-        isDraging: false
+        isDraging = false
       }
 
       onEntered: {
