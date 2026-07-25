@@ -16,28 +16,27 @@
  *   Free Software Foundation, Inc.,                                         *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .          *
  ****************************************************************************/
-import QtQuick
-import QtQuick.Window 2.2
+
+import QtQuick 2.15
 import org.kde.plasma.core as PlasmaCore
 
-PlasmaCore.Dialog { //cosmic background noise is less random than the placement of this dialog
+PlasmaCore.Dialog {
   id: avatarContainer
 
   property int avatarWidth
   property bool isTop: false
 
-  type: PlasmaCore.Dialog.Type.Notification
+  type: PlasmaCore.Dialog.Notification
 
   x: root.x + root.width / 2 - width / 2
-  y: root.y - width / 2 //you can't even add 1 without everything breaking wtf
+  y: root.y - width / 2
 
   mainItem:
   Item {
-   onParentChanged: {
-     //This removes the dialog background
-      if (parent){
+    onParentChanged: {
+      if (parent) {
         var popupWindow = Window.window
-        if (typeof popupWindow.backgroundHints !== "undefined"){
+        if (typeof popupWindow.backgroundHints !== "undefined") {
           popupWindow.backgroundHints = PlasmaCore.Types.NoBackground
         }
       }
