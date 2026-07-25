@@ -125,6 +125,7 @@ RowLayout {
         spacing: 6
 
         Kirigami.Icon {
+        HoverHandler { enabled: false }
           source: modelData.icon
           Layout.preferredWidth: 16
           Layout.preferredHeight: 16

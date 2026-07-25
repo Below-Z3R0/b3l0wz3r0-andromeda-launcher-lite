@@ -34,7 +34,7 @@ PlasmaCore.Dialog {
         case 1: return Kirigami.Units.iconSizes.medium;
         case 2: return Kirigami.Units.iconSizes.large;
         case 3: return Kirigami.Units.iconSizes.huge;
-        default: return 64
+        default: return 80
       }
     }
 

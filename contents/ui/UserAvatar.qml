@@ -17,6 +17,7 @@ Item {
                                                 "#ff8b26"
 
     KirigamiComponents.AvatarButton {
+        HoverHandler { enabled: false }
         id: mainFaceIcon
         source: kuser.faceIconUrl
         anchors {

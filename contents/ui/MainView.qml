@@ -142,6 +142,7 @@ Item {
       }
         
       Kirigami.Icon {
+        HoverHandler { enabled: false }
         id: headerLabel
         source:  Qt.resolvedUrl("icons/feather/star.svg")
         visible: !main.showAllApps
@@ -153,6 +154,7 @@ Item {
       }
 
       Kirigami.Icon {
+        HoverHandler { enabled: false }
         id: sortingImage
         Layout.preferredHeight: 15
         Layout.preferredWidth: 15

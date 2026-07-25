@@ -73,6 +73,7 @@ Item {
     height: 38 * 1
     
    Kirigami.Icon {
+        HoverHandler { enabled: false }
       x: 9 * 1
       anchors.verticalCenter: rect.verticalCenter
       id: appicon

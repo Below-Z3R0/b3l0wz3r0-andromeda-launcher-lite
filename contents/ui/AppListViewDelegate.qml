@@ -62,6 +62,7 @@ T.ItemDelegate {
     id: row
     spacing: 8
     Kirigami.Icon {
+        HoverHandler { enabled: false }
       id: icon
       implicitWidth: compact ? Kirigami.Units.iconSizes.smallMedium : Kirigami.Units.iconSizes.medium
       implicitHeight: implicitWidth

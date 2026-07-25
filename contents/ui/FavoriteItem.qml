@@ -78,6 +78,7 @@ Item {
   }
 
  Kirigami.Icon {
+        HoverHandler { enabled: false }
     id: appicon
     y: plasmoid.configuration.showAppLabels ? (2 * highlightItemSvg.margins.top) : (parent.height - height) / 2
     anchors.horizontalCenter: parent.horizontalCenter

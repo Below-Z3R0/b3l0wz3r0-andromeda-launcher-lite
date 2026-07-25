@@ -69,6 +69,7 @@ Item {
     anchors.left: parent.left
 
     Kirigami.Icon {
+        HoverHandler { enabled: false }
         id: settingsImage
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
@@ -94,6 +95,7 @@ Item {
       // Make it look pressed while the menu is open
       down: contextMenu.status === PlasmaExtras.Menu.Open || pressed
       Kirigami.Icon {
+        HoverHandler { enabled: false }
         id: powerImage
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter

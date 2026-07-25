@@ -21,6 +21,7 @@ Item {
     readonly property bool useCustomButtonImage: (Plasmoid.configuration.useCustomButtonImage && Plasmoid.configuration.customButtonImage.length != 0)
 
     Kirigami.Icon {
+        HoverHandler { enabled: false }
         id: buttonIcon
 
         width: Plasmoid.configuration.activationIndicator ? parent.width * 0.65 : parent.width

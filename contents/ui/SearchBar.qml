@@ -16,6 +16,7 @@ Rectangle {
         anchors.fill: parent
         spacing: 0
         Kirigami.Icon {
+        HoverHandler { enabled: false }
             id: searchIcon
             Layout.preferredWidth: 21
             Layout.preferredHeight: 21
