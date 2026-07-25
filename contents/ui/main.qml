@@ -1,6 +1,4 @@
 /*
- * SPDX-FileCopyrightText: 2014-2015 Eike Hein <hein@kde.org>
- * SPDX-FileCopyrightText: 2021 Prateek SU <pankajsunal123@gmail.com>
  * SPDX-FileCopyrightText: 2026 b3l0wz3r0
  * SPDX-License-Identifier: GPL-2.0-or-later
  */

@@ -1,6 +1,5 @@
 /*
     SPDX-FileCopyrightText: 2013 Aurélien Gâteau <agateau@kde.org>
-    SPDX-FileCopyrightText: 2013-2015 Eike Hein <hein@kde.org>
     SPDX-FileCopyrightText: 2017 Ivan Cukic <ivan.cukic@kde.org>
     SPDX-FileCopyrightText: 2026 b3l0wz3r0
 
