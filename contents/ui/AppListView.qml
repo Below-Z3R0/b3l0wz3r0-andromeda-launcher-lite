@@ -1,21 +1,8 @@
-/*****************************************************************************
- *   Copyright (C) 2022 by Friedrich Schriewer <friedrich.schriewer@gmx.net> *
- *                                                                           *
- *   This program is free software; you can redistribute it and/or modify    *
- *   it under the terms of the GNU General Public License as published by    *
- *   the Free Software Foundation; either version 2 of the License, or       *
- *   (at your option) any later version.                                     *
- *                                                                           *
- *   This program is distributed in the hope that it will be useful,         *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of          *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           *
- *   GNU General Public License for more details.                            *
- *                                                                           *
- *   You should have received a copy of the GNU General Public License       *
- *   along with this program; if not, write to the                           *
- *   Free Software Foundation, Inc.,                                         *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .          *
- ****************************************************************************/
+/*
+ * SPDX-FileCopyrightText: 2022 Friedrich Schriewer <friedrich.schriewer@gmx.net>
+ * SPDX-FileCopyrightText: 2026 b3l0wz3r0
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 
 import QtQuick
 
@@ -186,7 +173,7 @@ ListView {
         case Qt.Key_PageUp: if (!atFirst) {
             targetY = targetY - height + 1
             targetIndex = indexAt(targetX, targetY)
-            // TODO: Find a more efficient, but accurate way to do this
+            // Find the nearest instantiated item when the target lands in spacing.
             while (targetIndex === -1) {
                 targetY += 1
                 targetIndex = indexAt(targetX, targetY)
@@ -197,7 +184,7 @@ ListView {
         case Qt.Key_PageDown: if (!atLast) {
             targetY = targetY + height - 1
             targetIndex = indexAt(targetX, targetY)
-            // TODO: Find a more efficient, but accurate way to do this
+            // Find the nearest instantiated item when the target lands in spacing.
             while (targetIndex === -1) {
                 targetY -= 1
                 targetIndex = indexAt(targetX, targetY)
