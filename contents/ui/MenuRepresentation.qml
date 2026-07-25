@@ -38,7 +38,7 @@ PlasmaCore.Dialog {
                                      + (Plasmoid.configuration.showAppLabels ? Kirigami.Units.gridUnit * 2 : 0)
                                      + (2 * Math.max(highlightItemSvg.margins.top + highlightItemSvg.margins.bottom,
                                                      highlightItemSvg.margins.left + highlightItemSvg.margins.right))
-    property int cellSizeWidth: cellSizeHeight //+ Kirigami.Units.gridUnit
+    property int cellSizeWidth: cellSizeHeight + 16
     
     property int rows: Plasmoid.configuration.numberOfRows
     
